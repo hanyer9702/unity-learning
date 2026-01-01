@@ -1,0 +1,63 @@
+# ==========================================
+# 유니티 프로젝트 구조 + 현재 씬 Hierarchy (안전 버전)
+# ==========================================
+
+[Scripts]
+
+# Scripts/Item
+    Coin.cs
+    Item.cs
+    ItemData.cs
+    ItemSpawner.cs
+
+# Scripts/Managers
+    GameManager.cs
+    GameState.cs
+
+# Scripts/Player
+    PlayerController.cs
+    PlayerMove.cs
+    PlayerMove_Key.cs
+    PlayerMove_Rigidbody.cs
+
+# Scripts/UI
+    TweenTestUI.cs
+    UIManager.cs
+
+[Prefabs]
+Coin.prefab
+Item.prefab
+
+# ---------- 현재 씬 Hierarchy ----------
+Scene: MainScene
+- Main Camera
+- Managers
+    - GameManager
+    - UIManager
+    - ItemManager
+- Environment
+    - Background
+    - Sky
+    - Ground
+    - DeadZone
+    - Wall
+    - DangerZone
+- Player
+    - Body
+    - Shadow
+    - Weapon
+- UI
+    - Canvas
+        - CoinText
+        - GameOverPanel
+            - RestartButton
+                - Text (TMP)
+        - TweenTestPanel
+        - OpenButton
+            - Text (TMP)
+        - InventoryPanel
+            - ItemListText
+    - EventSystem
+
+# ==========================================
+# 완료!
