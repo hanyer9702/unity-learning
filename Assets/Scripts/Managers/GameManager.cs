@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public UIManager uiManager;
 
     public static GameManager Instance;
     public GameState currentState = GameState.Playing;
@@ -45,10 +46,12 @@ public class GameManager : MonoBehaviour
 
         currentState = GameState.GameOver;
 
-        Debug.Log("Game Over");
+        //Debug.Log("Game Over");
 
         // 예: 2초 후 재시작
-        Invoke("Restart", 2f);
+        //Invoke("Restart", 2f);
+
+        uiManager.ShowGameOverUI();
     }
 
     void Restart()
