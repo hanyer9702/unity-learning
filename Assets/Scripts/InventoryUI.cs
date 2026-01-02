@@ -1,5 +1,6 @@
-using UnityEngine;
+using System.Collections.Generic;
 using TMPro; // TextMeshPro 사용
+using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class InventoryUI : MonoBehaviour
     public TMP_Text inventoryText;    // Panel 안 Text 연결
 
     // UI 갱신 함수
-    public void RefreshUI()
+    /*public void RefreshUI()
     {
         if (inventoryText == null)
         {
@@ -21,6 +22,24 @@ public class InventoryUI : MonoBehaviour
         foreach (var item in inventory.items)
         {
             inventoryText.text += $"{item.itemName} x{item.amount}\n";
+        }
+    }*/
+
+    public void RefreshUI()
+    {
+        inventoryText.text = "";
+
+        /*foreach (ItemData item in inventory.items)
+        {
+            inventoryText.text += item.itemName + "\n";
+        }*/
+
+        foreach (KeyValuePair<ItemData, int> pair in inventory.items)
+        {
+            ItemData data = pair.Key;
+            int count = pair.Value;
+
+            inventoryText.text += $"{data.itemName} x {count}\n";
         }
     }
 

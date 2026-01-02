@@ -1,6 +1,9 @@
-[System.Serializable]
-public class ItemData
+using UnityEngine;
+
+[CreateAssetMenu(menuName = "Item/Item Data")]
+public class ItemData : ScriptableObject
 {
-    public string itemName;   // 아이템 이름
-    public int amount;        // 수량
+    public string itemName;
+    public int score;
+    public Sprite icon;
 }

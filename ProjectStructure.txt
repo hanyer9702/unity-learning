@@ -8,6 +8,7 @@
     Coin.cs
     Item.cs
     ItemData.cs
+    ItemInfo.cs
     ItemSpawner.cs
 
 # Scripts/Managers
@@ -26,7 +27,7 @@
 
 [Prefabs]
 Coin.prefab
-Item.prefab
+ItemPrefab.prefab
 
 # ---------- 현재 씬 Hierarchy ----------
 Scene: MainScene
@@ -35,6 +36,7 @@ Scene: MainScene
     - GameManager
     - UIManager
     - ItemManager
+    - ScoreManager
 - Environment
     - Background
     - Sky
@@ -58,6 +60,7 @@ Scene: MainScene
         - InventoryPanel
             - ItemListText
     - EventSystem
+- Items
 
 # ==========================================
 # 완료!

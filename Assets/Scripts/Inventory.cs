@@ -3,13 +3,18 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<ItemData> items = new List<ItemData>();
-    public Dictionary<string, ItemData> itemDict = new Dictionary<string, ItemData>();
+    //public List<ItemInfo> items = new List<ItemInfo>();
+    //public List<ItemData> items = new List<ItemData>();
+
+    public Dictionary<ItemData, int> items = new Dictionary<ItemData, int>();
+    public Dictionary<string, ItemInfo> itemDict = new Dictionary<string, ItemInfo>();
 
     public InventoryUI inventoryUI; // UI 연결
 
+    public ScoreManager scoreManager;
+
     // 아이템 추가
-    public void AddItem(string name, int count = 1)
+    /*public void AddItem(string name, int count = 1)
     {
         if (itemDict.ContainsKey(name))
         {
@@ -17,7 +22,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            ItemData newItem = new ItemData { itemName = name, amount = count };
+            ItemInfo newItem = new ItemInfo { itemName = name, amount = count };
             items.Add(newItem);
             itemDict.Add(name, newItem);
         }
@@ -27,5 +32,37 @@ public class Inventory : MonoBehaviour
         // UI 갱신
         if (inventoryUI != null)
             inventoryUI.RefreshUI();
+    }*/
+
+    public void AddItem(ItemData itemData)
+    {
+        /*items.Add(itemData);
+
+        Debug.Log(itemData.itemName + " 획득");
+
+        InventoryUI ui = FindObjectOfType<InventoryUI>();
+        if (ui != null)
+        {
+            ui.RefreshUI();
+        }*/
+
+        if (items.ContainsKey(itemData))
+        {
+            items[itemData]++;
+        }
+        else
+        {
+            items.Add(itemData, 1);
+        }
+
+        Debug.Log(itemData.itemName + " : " + items[itemData]);
+
+        InventoryUI ui = FindObjectOfType<InventoryUI>();
+        if (ui != null)
+        {
+            ui.RefreshUI();
+        }
+
+        scoreManager.AddScore(itemData.score);
     }
 }
