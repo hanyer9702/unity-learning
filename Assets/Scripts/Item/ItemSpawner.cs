@@ -42,4 +42,9 @@ public class ItemSpawner : MonoBehaviour
             }
         }
     }
+
+    public void Spawn()
+    {
+        Instantiate(itemPrefab, transform.position, Quaternion.identity);
+    }
 }
